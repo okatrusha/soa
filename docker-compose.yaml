@@ -1,0 +1,15 @@
+
+services:
+  clusterer_service:
+    build:
+      context: ./clusterer_service
+    ports:
+      - "5001:5001"
+
+  cluster_runner:
+    build:
+      context: ./cluster_runner
+    ports:
+      - "5002:5002"
+    depends_on:
+      - clusterer_service
